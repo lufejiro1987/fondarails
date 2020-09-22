@@ -7,6 +7,7 @@
 <%= form_tag(root_path, method: 'get') do %>
     <%= text_field_tag :name, nil, placeholder: 'nombre fonda' %>
     <%= submit_tag 'Buscar' %>
+    <%= submit_tag 'Limpiar' %>
 <% end %>
 
 <table>
@@ -21,6 +22,8 @@
               <td><%= fonda.name %></td>
               <td><%= fonda.address %></td>
               <td><%= fonda.food %></td>
+              <td><%= link_to 'ver', fonda_path(fonda.id) %></td>
+              <td><%= link_to 'borrar', fonda, method: 'delete', data:{ confirm: 'estas seguro?' } %></td>
           </tr>
         <%end%>
     </tbody>

@@ -9,6 +9,7 @@ class FondasController < ApplicationController
     end
 
     def show
+        @fonda = Fonda.find(params[:id])
     end
 
     def new
@@ -25,10 +26,13 @@ class FondasController < ApplicationController
     end
 
     def destroy
+        @fonda = Fonda.find(params[:id])
+        @fonda.destroy
+        redirect_to root_path, notice: 'la fonda fue eliminada'
     end
 
     private
     def fonda_params
-        params.require(:fonda).permit[:name, :address, :food]
+        params.require(:fonda).permit(:name, :address, :food)
     end
 end
