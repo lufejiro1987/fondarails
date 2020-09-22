@@ -20,7 +20,7 @@ class FondasController < ApplicationController
         if @fonda.save
             redirect_to root_path, notice: 'se ha añadido una nueva fonda'
         else
-            redirect_to new_fonda_path, alert: 'no se ha podido guardar'
+            render :new
         end
     end
 
