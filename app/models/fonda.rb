@@ -1,0 +1,2 @@
+class Fonda < ApplicationRecord
+end

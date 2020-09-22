@@ -1,0 +1,25 @@
+<h1>Bienvenido a las mejores fondas ONLINE</h1>
+
+<h3>Busca tu fonda!</h3>
+
+<%= form_tag(root_path, method: 'get') do %>
+    <%= text_field_tag :name, nil, placeholder: 'nombre fonda' %>
+    <%= submit_tag 'Buscar' %>
+<% end %>
+
+<table>
+    <thead>
+        <th>Nombre</th>
+        <th>Direccion</th>
+        <th>Plato Fuerte</th>
+    </thead>
+    <tbody>
+        <% @fondas.each do |fonda| %>
+          <tr>
+              <td><%= fonda.name %></td>
+              <td><%= fonda.address %></td>
+              <td><%= fonda.food %></td>
+          </tr>
+        <%end%>
+    </tbody>
+</table>
