@@ -12,11 +12,23 @@ class FondasController < ApplicationController
     end
 
     def new
+        @fonda = Fonda.new
     end
 
     def create
+        @fonda = Fonda.new(fonda_params)
+        if @fonda.save
+            redirect_to root_path, notice: 'se ha añadido una nueva fonda'
+        else
+            redirect_to new_fonda_path, alert: 'no se ha podido guardar'
+        end
     end
 
     def destroy
+    end
+
+    private
+    def fonda_params
+        params.require(:fonda).permit[:name, :address, :food]
     end
 end
