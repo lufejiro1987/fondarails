@@ -1,0 +1,2 @@
+class FondasController < ApplicationController
+end
